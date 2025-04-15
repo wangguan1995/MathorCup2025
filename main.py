@@ -222,7 +222,7 @@ def write_to_vtk(out_dict, point_data_pos="press on mesh points", mesh_path=None
     print(f"write : ./output/{mesh_path.parent.name}_{index}.vtk")
     mesh.write(f"./output/{mesh_path.parent.name}_{index}.vtk") 
  
- @paddle.no_grad()
+@paddle.no_grad()
 def eval(model, datamodule, config, loss_fn=None, track="Dataset_1"):
     test_loader = datamodule.test_dataloader(batch_size=config.eval_batch_size, shuffle=False, num_workers=0)
     data_list = []
