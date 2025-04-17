@@ -25,6 +25,8 @@ git clone -b develop https://gitee.com/paddlepaddle/PaddleScience.git
 ## 训练+推理+结果文件打包
 python main.py
 
+## 提交结果
+将【./output/Gen_Answer.zip】上传至比赛平台。
 
 ![512x512px](https://github.com/user-attachments/assets/12e981b2-3d24-413f-832f-c14008c17343)
 
