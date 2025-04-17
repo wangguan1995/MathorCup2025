@@ -299,7 +299,10 @@ class CFDSDFDataModule(CFDDataModule):
         assert n_train + n_test <= len(valid_mesh_inds), "Not enough data"
         if n_train + n_test < len(valid_mesh_inds):
             warnings.warn(
-                f"{len(valid_mesh_inds)} meshes are available, but {n_train + n_test} are requested."
+                f"{len(valid_mesh_inds_train)} traning meshes are available, but n_train= {n_train} are requested."
+            )
+            warnings.warn(
+                f"{len(valid_mesh_inds_test)} testing meshes are available, but n_train= {n_test} are requested."
             )
 
         train_indices = valid_mesh_inds_train[:n_train]

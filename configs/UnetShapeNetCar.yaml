@@ -21,9 +21,9 @@ use_position_input: True
 
 # dataset setting
 data_module: "CFDSDFDataModule"
-data_dir: "/home/aistudio/data/data/"           
-test_data_dir: "/home/aistudio/data/test_data_1/"      
-n_train: 100
+data_dir: "./data/data/"           
+test_data_dir: "./data/test_data_1/"      
+n_train: 5
 n_test: 50
 sdf_spatial_resolution: [64, 64, 64]
 point_data_pos: "press on mesh points" 

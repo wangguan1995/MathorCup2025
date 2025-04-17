@@ -3,16 +3,27 @@
 报名链接：
 https://www.saikr.com/vse/mathorcup/2025
 
-# 数据下载：
+
+# 实验方法1：在线运行
+## AIStudio项目链接：
+https://aistudio.baidu.com/projectdetail/9021898
+
+
+# 实验方法2：本地部署
+## 数据下载(AIStudio跳过)：
 ```
 wget https://dataset.bj.bcebos.com/PaddleScience/DNNFluid-Car/mathor_cup_2025.tar
 tar -xvf mathor_cup_2025.tar
+apt install zip
+mkdir data
+mv data258885/ data281827/ data/
+git clone -b develop https://gitee.com/paddlepaddle/PaddleScience.git
 ``` 
 
-# 环境准备
+## 环境准备
 bash prepare_env.sh
 
-# 训练+推理+结果文件打包
+## 训练+推理+结果文件打包
 python main.py
 
 

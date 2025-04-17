@@ -21,8 +21,10 @@ use_position_input: True
 
 # dataset setting
 data_module: "CdDataModule"
-train_data_dir: "/home/aistudio/data/Training/Dataset_2/Feature_File/"           
-test_data_dir: "/home/aistudio/data/Test/Dataset_2/Feature_File/"      
+train_data_dir: "./data/Training/Dataset_2/"           
+test_data_dir: "./data/Test/Dataset_2/"      
+n_train: 5
+n_test: 50
 sdf_spatial_resolution: [64, 64, 64]
 point_data_pos: "press on mesh points" 
 

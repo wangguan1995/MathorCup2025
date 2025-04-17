@@ -1,6 +1,6 @@
 import sys
 sys.path.append("./PaddleScience/")
-sys.path.append('/home/aistudio/3rd_lib')
+sys.path.append('./3rd_lib')
 sys.path.append("./model")
 import argparse
 import os
@@ -355,24 +355,12 @@ def leader_board(config, track):
 
 if __name__ == "__main__":
     os.makedirs("./output/", exist_ok=True)
-    config_p = load_yaml("UnetShapeNetCar.yaml")
-    config_p.n_test=50
-    train(config_p)
     
-    index_list = np.loadtxt("/home/aistudio/data/train_data_1_velocity/watertight_meshes.txt", dtype=int)
-    config_v = load_yaml("Unet_Velocity.yaml")
-    config_v.train_index_list = index_list[:100].tolist()  
-    config_v.test_index_list = index_list[500:550].tolist()  
-    train(config_v)
+    config_p = load_yaml("UnetShapeNetCar.yaml")
+    train(config_p)
+    leader_board(config_p,  "Gen_Answer")
 
     config_cd = load_yaml("Unet_Cd.yaml")
-    index_list = np.loadtxt("/home/aistudio/data/Training/Dataset_2/Label_File/dataset2_train_label.csv", delimiter=",", dtype=str, encoding='utf-8')[:,1][1:]
-    config_cd.train_index_list = index_list[:100].tolist()  
-    config_cd.test_index_list = index_list[500:550].tolist()  
     train(config_cd)
-
-    # test on leader_board, or do evaluation by yourself
     leader_board(config_cd, "Gen_Answer")
-    leader_board(config_p,  "Gen_Answer")
-    leader_board(config_v,  "Gen_Answer")
     os.system(f"zip -r -j ./output/Gen_Answer.zip ./output/Gen_Answer")

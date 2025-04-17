@@ -52,6 +52,8 @@ def instantiate_datamodule(config):
         return CdDataModule(
             config.train_data_dir,
             config.test_data_dir,
+            config.n_train,
+            config.n_test,
             config.train_index_list,
             config.test_index_list,
         )
