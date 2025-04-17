@@ -363,5 +363,6 @@ if __name__ == "__main__":
     config_cd = load_yaml("Unet_Cd.yaml")
     train(config_cd)
     leader_board(config_cd, "Gen_Answer")
-    os.system(f"zip -r  ./output/Gen_Answer.zip ./output/Gen_Answer ./configs/ ./model/ ./README.md ./requirements.txt ./main.py ./main.ipynb")
-    print("结果保存为/home/aistudio/MathorCup2025/output/Gen_Answer.zip，请上传平台完成提交")
+    os.system(f"zip -r  ./output/Gen_Code.zip ./configs/ ./model/ ./README.md ./requirements.txt ./main.py ./main.ipynb")
+    os.system(f"cd ./output && zip -r ./Gen_Answer.zip ./Gen_Answer")
+    print("结果保存为/home/aistudio/MathorCup2025/output/Gen_Code.zip，请上传平台完成提交")
