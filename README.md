@@ -12,6 +12,8 @@ https://aistudio.baidu.com/projectdetail/9021898
 # 实验方法2：本地部署
 ## 数据下载(AIStudio跳过)：
 ```
+git clone https://gitee.com/Supob/MathorCup2025.git
+cd MathorCup2025
 wget https://dataset.bj.bcebos.com/PaddleScience/DNNFluid-Car/mathor_cup_2025.tar
 tar -xvf mathor_cup_2025.tar
 mkdir data/
@@ -20,6 +22,7 @@ mv Training/ data/
 unzip -o ./3rd_lib.zip -d ./
 apt install zip
 git clone -b develop https://gitee.com/paddlepaddle/PaddleScience.git
+python main.py
 ``` 
 
 # 训练+推理+结果文件打包
