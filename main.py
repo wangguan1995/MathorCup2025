@@ -363,4 +363,5 @@ if __name__ == "__main__":
     config_cd = load_yaml("Unet_Cd.yaml")
     train(config_cd)
     leader_board(config_cd, "Gen_Answer")
-    os.system(f"zip -r -j ./output/Gen_Answer.zip ./output/Gen_Answer")
+    os.system(f"zip -r  ./output/Gen_Answer.zip ./output/Gen_Answer ./configs/ ./model/ ./README.md ./requirements.txt ./main.py ./main.ipynb")
+
