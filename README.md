@@ -14,9 +14,11 @@ https://aistudio.baidu.com/projectdetail/9021898
 ```
 wget https://dataset.bj.bcebos.com/PaddleScience/DNNFluid-Car/mathor_cup_2025.tar
 tar -xvf mathor_cup_2025.tar
+mkdir data/
+mv Test/ data/
+mv Training/ data/
+unzip -o ./3rd_lib.zip -d ./
 apt install zip
-mkdir data
-mv data258885/ data281827/ data/
 git clone -b develop https://gitee.com/paddlepaddle/PaddleScience.git
 ``` 
 

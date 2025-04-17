@@ -308,7 +308,7 @@ class CFDSDFDataModule(CFDDataModule):
         train_indices = valid_mesh_inds_train[:n_train]
         test_indices = valid_mesh_inds_test[:n_test]
         train_mesh_paths = [self.get_mesh_path(data_dir, i) for i in train_indices]
-        test_mesh_paths = [self.get_mesh_path(test_data_dir, i) for i in test_indices]
+        test_mesh_paths = [self.get_mesh_path(test_data_dir / "Feature_File", i) for i in test_indices]
         self.test_mesh_paths = test_mesh_paths
         self.test_indices = test_indices
         if query_points is None:
@@ -390,17 +390,16 @@ class CFDSDFDataModule(CFDDataModule):
         del test_sdf_mesh_vertices
 
         # fake test pressure
-        if (test_data_dir.name == 'test_data_1') or (test_data_dir.name == 'test_data_2'):
-            print(f"fake pressure for {test_data_dir.name}")
-            for v, mesh_index in zip(test_vertices, test_indices):
-                p_length = v.shape[0] + 96 # 96 = 112 - 16 for pressure truncation
-                p_test_fake = np.ones((p_length,), dtype=np.float32)
-                np.save(self.get_pressure_data_path(test_data_dir, mesh_index), p_test_fake)
-
+        # print(f"fake pressure for {test_data_dir.name}")
+        # for v, mesh_index in zip(test_vertices, test_indices):
+        #     p_length = v.shape[0] + 96 # 96 = 112 - 16 for pressure truncation
+        #     p_test_fake = np.ones((p_length,), dtype=np.float32)
+        #     np.save(self.get_pressure_data_path(test_data_dir / "Label_file", mesh_index), p_test_fake)
+        # import pdb;pdb.set_trace()
         test_pressure = paddle.stack(
             x=[
                 paddle.to_tensor(
-                    data=self.load_pressure(test_data_dir, mesh_index), dtype="float32"
+                    data=self.load_pressure(test_data_dir / "Label_file", mesh_index), dtype="float32"
                 )
                 for mesh_index in test_indices
             ]
