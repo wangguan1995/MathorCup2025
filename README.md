@@ -4,13 +4,14 @@
 https://www.saikr.com/vse/mathorcup/2025
 
 
-# 实验方法1：在线运行
-## AIStudio项目链接：
+# 实验方法：
+## 在线运行 AIStudio项目链接：
 https://aistudio.baidu.com/projectdetail/9021898
 
+## 本地部署PaddlePaddle
+https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/develop/install/pip/linux-pip.html
 
-# 实验方法2：本地部署
-## 数据下载(AIStudio跳过)：
+## 数据下载：
 ```
 git clone https://gitee.com/Supob/MathorCup2025.git
 cd MathorCup2025
