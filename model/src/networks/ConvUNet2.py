@@ -445,6 +445,7 @@ class AbstractUNet(BaseModel):
             self.final_activation = None
 
     def forward(self, x):
+        x.stop_gradient = False
         encoders_features = []
         for encoder in self.encoders:
             x = encoder(x)
