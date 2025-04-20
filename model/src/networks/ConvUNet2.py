@@ -539,7 +539,7 @@ class UNet3DWithSamplePoints(UNet3D):
         elif "velocity" in data_dict.keys():
             true_var =  data_dict['velocity']
         elif "cd" in data_dict.keys():
-            pred_var =  paddle.mean(pred_var)
+            pred_var =  paddle.mean(pred_var, axis=[1,2])
             true_var =  data_dict['cd']
         else:
             raise NotImplementedError("only pressure velocity works")
